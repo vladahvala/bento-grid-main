@@ -23,30 +23,37 @@
     display: flex;            
     justify-content: center;    
     align-items: center;     
+    background-color: #f5f5f5;
   }
 
    
   /* Container */
   .grid-container {
     font-family: 'DMSans', sans-serif;
-
-    height: 80%;
+  
+    height: 100%; /* або бажана висота */
     width: 60%;
-
+  
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr); 
+    grid-template-rows: repeat(4, 1fr);
     column-gap: 3rem;
     row-gap: 3rem;
+    overflow: visible;
+  
+    padding-top: 3rem;     /* відступ зверху */
+    padding-bottom: 3rem;  /* відступ знизу */
+    box-sizing: border-box; /* щоб padding не збільшував ширину/висоту */
   }
+  
   
 
 
   /* Items */
   .grid-container__item {
-    border: 2px solid black;
     min-width: 0;  
     min-height: 0;
+    border-radius: 0.7rem;
   }
   
   /* ITEM-1 */
@@ -54,7 +61,7 @@
     grid-row: 1 / span 2;
 
     background-color: #faeee2;
-    padding: 4rem 2rem;
+    padding: 4rem 3rem;
     row-gap: 2rem;
 
     display: flex;
@@ -74,9 +81,9 @@
   }
 
   .grid-container__text--create{
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 600;
-    line-height: 2.7rem;
+    line-height: 3.5rem;
   }
 
   .grid-container__text--create-highlighted{
@@ -85,21 +92,26 @@
   
 
   /* ITEM-2 */
-  .grid-container__item-2{
-    grid-column: 2/4;
-    grid-row: 1/3;
-
+  .grid-container__item-2 {
+    grid-column: 2 / 4;
+    grid-row: 1 / span 2; /* займає два ряди */
+    
     background-color: #7651dc;
-    padding: 4rem 2rem;
-
+    
+    /* Зменшуємо padding зверху/знизу, щоб не роздувати елемент повністю */
+    padding: 2rem 2rem;
+    box-sizing: border-box;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-    overflow: hidden; 
+    overflow: hidden;
+  
+    /* Додатково можна "трохи підтиснути" контент */
+    max-height: calc(100% - 2rem); /* або потрібне значення */
   }
-
+  
   .grid-container__text--social{
     font-size: 6rem;
     color: white;
@@ -125,10 +137,12 @@
   /* ITEM-3 */
   .grid-container__item-3{
     grid-row: 1/4;
-    padding: 4rem 3rem 4rem 3rem;
+    padding: 4rem 3rem 2rem 3rem;
     background-color: #dcd1fc;
 
     overflow: hidden;
+    max-height: calc(100% - 8rem); /* або потрібне значення */
+
   }
 
   .grid-container__text-schedule{
@@ -136,6 +150,7 @@
     font-weight: 600;
     line-height: 2.7rem;
     margin-bottom: 2rem;
+    margin-top: 1rem;
   }
 
   .grid-container__text-schedule-img{
@@ -152,52 +167,119 @@
 
    /* ITEM-4 */
   .grid-container__item-4{
-    grid-row: 3/5;
+    grid-row: 3 / 5;
     background-color: #ffcc69;
-    
-    display: flex;
+    display: flex
+;
     flex-direction: column;
-    row-gap: 2rem;
-    justify-content: center;
+    row-gap: 5rem;
+    /* justify-content: center; */
     align-items: center;
-
-    padding: 4rem 4rem;
+    padding: 3rem 3rem;
     text-align: left;
+
   }
 
   .grid-container__ai-content-img{
-    height: 19rem;
+    height: 21rem;
   }
 
 
   /* ITEM-5 */
-  .grid-container__item-5 {
-    overflow: hidden;
-    padding: 1rem 0 0 3rem;
-  }
+.grid-container__item-5 {
+  position: relative;
+  top: -2rem;
+  height: 21rem;
+  padding: 1rem 5rem 0 3rem;
+  overflow: hidden;
+  background-color: white;
+}
+
+/* ITEM-6 */
+
+
+  
+  
 
   .grid-container__multiple-platforms-img{
     height: 6rem;
+    margin-bottom: 2rem;
   }
 
 
    /* ITEM-6 */
   .grid-container__item-6{
-    overflow: hidden;
-    padding: 1rem 0 0 3rem;
     background-color: #ffcc69;
 
     display: flex;
     flex-direction: column;
+
+    position: relative;
+  top: -2rem;
+  height: 21rem;
+  padding: 1rem 3rem 0 3rem;
+  overflow: hidden;
   }
 
   .grid-container__schedule-posts-img{
-    height: 2rem;
+    height: 14rem;
+    width: 19rem;
+    align-self: center;
   }
 
   .grid-container__item-7{
+    position: relative;
+    margin-top: -2rem;
+
+    padding: 1rem 2rem 2rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center
+  }
+
+  .grid-container__text-ag-num{
+    font-size: 4rem;
+    font-weight: 500;
+
+    margin-bottom: 0.5rem;
+    margin-left: 2.5rem;
+  }
+
+  .grid-container__text-ag-fag{
+    font-size: 1.5rem;
+    font-weight: 300;
+
+    align-self: center;
+    margin-bottom: 1.8rem;
+
+  }
+
+  .grid-container__audience-growth-img{
+    height: 6rem;
+    width: 17rem;
+
+    align-self: center;
+    overflow: hidden;
   }
 
   .grid-container__item-8{
     grid-column: 3/5;
+    position: relative;
+    margin-top: -2rem;
+    display: flex;
+    column-gap: 2rem;
+
+    padding: 2rem;
+    background-color: #7651dc;
+  }
+
+  .grid-container__text-gf{
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 4rem;
+    font-weight: 500;
+    color: white;
+    align-self: center;
   }
